@@ -1,6 +1,5 @@
 {
 	"name": "LS_SQLSERVER_TBULKUP",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "SqlServer",
@@ -11,11 +10,19 @@
 			"trustServerCertificate": false,
 			"authenticationType": "Windows",
 			"userName": "AzureAD\\VenkateshKoppisetti",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJmZTUyMWQzYS0yODhiLTQxNzAtOWUzOC1iNDBlM2ExY2IyODEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "KV_OnPremSQL_DB_Secret",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "onpermsqldbsecret"
+			}
 		},
 		"connectVia": {
 			"referenceName": "OnPermSQLIntegrationRuntime",
 			"type": "IntegrationRuntimeReference"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
