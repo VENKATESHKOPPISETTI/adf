@@ -39,10 +39,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_OnPerm_SQLServver_DW'"
 		},
-		"LS_SQLSERVER_TBULKUP_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'LS_SQLSERVER_TBULKUP'"
-		},
 		"LS_SQL_ADLS_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SQL_ADLS'"
@@ -2698,8 +2694,12 @@
 					"authenticationType": "Windows",
 					"userName": "[parameters('LS_SQLSERVER_TBULKUP_properties_typeProperties_userName')]",
 					"password": {
-						"type": "SecureString",
-						"value": "[parameters('LS_SQLSERVER_TBULKUP_password')]"
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "KV_OnPremSQL_DB_Secret",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "onpermsqldbsecret"
 					}
 				},
 				"connectVia": {
@@ -2708,7 +2708,8 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/OnPermSQLIntegrationRuntime')]"
+				"[concat(variables('factoryId'), '/integrationRuntimes/OnPermSQLIntegrationRuntime')]",
+				"[concat(variables('factoryId'), '/linkedServices/KV_OnPremSQL_DB_Secret')]"
 			]
 		},
 		{

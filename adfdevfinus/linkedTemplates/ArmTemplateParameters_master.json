@@ -29,9 +29,6 @@
 		"LS_OnPerm_SQLServver_DW_password": {
 			"value": ""
 		},
-		"LS_SQLSERVER_TBULKUP_password": {
-			"value": ""
-		},
 		"LS_SQL_ADLS_password": {
 			"value": ""
 		},

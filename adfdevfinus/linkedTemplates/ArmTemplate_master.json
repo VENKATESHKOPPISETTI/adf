@@ -39,10 +39,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_OnPerm_SQLServver_DW'"
 		},
-		"LS_SQLSERVER_TBULKUP_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'LS_SQLSERVER_TBULKUP'"
-		},
 		"LS_SQL_ADLS_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SQL_ADLS'"
@@ -282,9 +278,6 @@
 					},
 					"LS_OnPerm_SQLServver_DW_password": {
 						"value": "[parameters('LS_OnPerm_SQLServver_DW_password')]"
-					},
-					"LS_SQLSERVER_TBULKUP_password": {
-						"value": "[parameters('LS_SQLSERVER_TBULKUP_password')]"
 					},
 					"LS_SQL_ADLS_password": {
 						"value": "[parameters('LS_SQL_ADLS_password')]"
