@@ -11,7 +11,7 @@
 			"trustServerCertificate": false,
 			"authenticationType": "Windows",
 			"userName": "AzureAD\\VenkateshKoppisetti",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJjYjMxMzk1OC1kMDk1LTQwYTUtYjUyMy1jOGY4ZjUzYmQzNzUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJjMWFiOWY4Ni1kOGJjLTQ1NTUtYmM5MC1kZGFiYTA2NjIxODQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "OnPermSQLIntegrationRuntime",
