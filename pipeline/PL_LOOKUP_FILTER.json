@@ -1,0 +1,108 @@
+{
+	"name": "PL_LOOKUP_FILTER",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup table data",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT  [BusinessEntityID]\n      ,[NationalIDNumber]\n      ,[LoginID]\n      ,[OrganizationNode].ToString() AS [OrganizationNode]\n      ,[OrganizationLevel]\n      ,[JobTitle]\n      ,[BirthDate]\n      ,[MaritalStatus]\n      ,[Gender]\n      ,[HireDate]\n      ,[SalariedFlag]\n      ,[VacationHours]\n      ,[SickLeaveHours]\n      ,[CurrentFlag]\n      ,[rowguid]\n      ,[ModifiedDate]\n  FROM [AdventureWorks2025].[HumanResources].[Employee]",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "DS_SQL_ADLS",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "Filter",
+				"type": "Filter",
+				"dependsOn": [
+					{
+						"activity": "Lookup table data",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup table data').output.value",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@equals(string(item().BusinessEntityID), '10')\n\n",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Filter1",
+				"type": "Filter",
+				"dependsOn": [
+					{
+						"activity": "Lookup table data 1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup table data 1').output.value",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@contains(item().JobTitle, 'Design Engineer')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Lookup table data 1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT  [BusinessEntityID]\n      ,[NationalIDNumber]\n      ,[LoginID]\n      ,[OrganizationNode].ToString() AS [OrganizationNode]\n      ,[OrganizationLevel]\n      ,[JobTitle]\n      ,[BirthDate]\n      ,[MaritalStatus]\n      ,[Gender]\n      ,[HireDate]\n      ,[SalariedFlag]\n      ,[VacationHours]\n      ,[SickLeaveHours]\n      ,[CurrentFlag]\n      ,[rowguid]\n      ,[ModifiedDate]\n  FROM [AdventureWorks2025].[HumanResources].[Employee]",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "DS_SQL_ADLS",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-03-26T12:28:26Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

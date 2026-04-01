@@ -1,0 +1,21 @@
+{
+	"name": "LS_SQLSERVER_TBULKUP",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "ADS-LA-81\\SQLEXPRESS",
+			"database": "RetailDW_Dev",
+			"encrypt": "optional",
+			"trustServerCertificate": false,
+			"authenticationType": "Windows",
+			"userName": "AzureAD\\VenkateshKoppisetti",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJjYjMxMzk1OC1kMDk1LTQwYTUtYjUyMy1jOGY4ZjUzYmQzNzUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "OnPermSQLIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
