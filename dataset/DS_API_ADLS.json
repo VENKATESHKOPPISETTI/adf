@@ -1,0 +1,16 @@
+{
+	"name": "DS_API_ADLS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_API_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": ""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

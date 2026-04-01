@@ -1,0 +1,21 @@
+{
+	"name": "DS_SQLPARQUET",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_PARQUET",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Employee.parquet",
+				"fileSystem": "inputsql"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
