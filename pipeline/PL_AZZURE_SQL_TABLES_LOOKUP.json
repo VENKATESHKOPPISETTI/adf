@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "PL_AZZURE_SQL_TABLES_LOOKUP",
 	"properties": {
 		"activities": [
 			{
@@ -17,6 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT\n    TABLE_SCHEMA,\n    TABLE_NAME\nFROM INFORMATION_SCHEMA.TABLES\nWHERE TABLE_SCHEMA = 'dbo';",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
