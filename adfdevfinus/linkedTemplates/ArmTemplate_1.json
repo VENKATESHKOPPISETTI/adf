@@ -731,7 +731,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/PL_APLI_DATA_PARQUET')]",
+			"name": "[concat(parameters('factoryName'), '/PL_API_DATA_PARQUET')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
